@@ -286,7 +286,7 @@
         <a href="mailto:sritechcp+verify@gmail.com">sritechcp+verify@gmail.com</a> |
         <a href="mailto:sritechcp@gmail.com">sritechcp@gmail.com</a>
       </p>
-      <p class="legal">© 2025 Sri Tech Computer Point. All Rights Reserved.</p>
+      <p>© <span id="year"></span> Sri Tech Computer Point. All Rights Reserved.</p>
     </div>
   </div>
 
@@ -300,5 +300,9 @@
     }
     formatDateTime();
   </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  
 </body>
 </html>
