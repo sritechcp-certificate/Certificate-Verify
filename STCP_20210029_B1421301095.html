@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official Certificate Verification Portal of Sri Tech Computer Point - Registered Under Society Registration Act, 1860 By U.P. Govt. Verify authentic student certificates online.">
+  <meta name="keywords" content="Sri Tech Computer Point, Certificate Verification, STCP Verify, Digital Certificate, Official Verification, Computer Course, ADCA, DCA, Python Course">
+  <meta name="author" content="Sri Tech Computer Point (STCP)">
+  <meta property="og:title" content="Certificate Verification - Sri Tech Computer Point">
+  <meta property="og:description" content="Verify student certificates issued by Sri Tech Computer Point. Registered Under Society Registration Act, 1860 By U.P. Govt.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/verify">
+  <meta property="og:image" content="https://raw.githubusercontent.com/sritechcp-certificate/Certificate-Verify/main/images/Logo.png">
+  <title>Certificate Verification - Sri Tech Computer Point</title>
+
+  <style>
+    /* ===== BASE PAGE STYLE ===== */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
+      border: 1px solid #ccc; /* extra for visible border */
+    }
+
+    /* ===== HEADER SECTION ===== */
+    .header {
+      position: relative;
+      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      width: 110px;  /* increased from 90px */
+      height: 110px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      color: #ff2312;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin: 5px 0;
+      color: #004aad;
+    }
+
+    .details {
+      margin-top: 15px;
+      line-height: 1em;
+      font-size: 16px;
+    }
+
+    .details b {
+      color: #004aad;
+      width: 180px;
+      display: inline-block;
+    }
+
+    /* === Verified Text Animation === */
+    .status-valid {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      background: linear-gradient(to left bottom, #24fc03, #189e2e, #0b8a8a);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 6s ease-in-out infinite, textPulse 2.8s ease-in-out infinite;
+      display: inline-block;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: right top; }
+      50% { background-position: left bottom; }
+      100% { background-position: right top; }
+    }
+
+    @keyframes textPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* === Marks Table === */
+    .marks-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      font-size: 15px;
+    }
+
+    .marks-table th, .marks-table td {
+      border: 1px solid #ccc;
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .marks-table th {
+      background-color: #004aad;
+      color: #fff;
+    }
+
+    .marks-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+
+
+    /* === Marks Table A === */
+    .marks-table-a {
+      width: 45%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .marks-table-a th, .marks-table-a td {
+      border: 1px solid #ccc;
+      padding: 4px 6px;
+      text-align: center;
+    }
+
+    .marks-table-a th {
+      background-color: #004aad;
+      color: #fff;
+    }
+
+    .marks-table-a tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+
+
+
+
+    .marks-summary {
+      margin-top: 15px;
+      font-size: 15px;
+      line-height: 1em;
+    }
+
+    .marks-summary b {
+      color: #004aad;
+    }
+
+    /* === QR Scan Section === */
+    .qr-scan {
+      margin-top: 12px;
+      font-style: italic;
+      font-size: 14px;
+      color: #15803d;
+      text-align: right;
+    }
+
+    /* === Print Button === */
+    .print-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #004aad;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .print-btn:hover {
+      background: #0060df;
+    }
+
+    .footer {
+      margin-top: 35px;
+      text-align: center;
+      border-top: 2px solid #eee;
+      padding-top: 15px;
+      font-size: 14px;
+      color: #555;
+      line-height: .5em;
+    }
+
+    .footer b {
+      color: #004aad;
+    }
+
+    .legal {
+      font-size: 13px;
+      color: #777;
+      margin: 5px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container { margin: 20px; padding: 25px; }
+      .details b { display: block; margin-bottom: 4px; }
+      .marks-table th, .marks-table td { font-size: 13px; }
+      .logo { position: static; display: block; margin: 0 auto 10px; width: 80px; height: 80px; }
+    }
+
+    /* === PRINT FRIENDLY MODE === */
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+      }
+      .container {
+        box-shadow: none !important;
+        border: 1px solid #333;
+        margin: 0 auto;
+        padding: 10mm;
+        border-radius: 0;
+        width: 100%;
+        max-width: 190mm; /* ensures border fits A4 width */
+        page-break-inside: avoid;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      .print-btn { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Certificate</button>
+
+    <div class="header">
+      <img src="https://raw.githubusercontent.com/sritechcp-certificate/Certificate-Verify/main/images/Logo.png"
+           alt="Institute Logo"
+           class="logo">
+      <h1>SRI TECH COMPUTER POINT</h1>
+      <p class="legal"><b>Registered Under Society Registration Act, 1860 By U.P. Govt.</b></p>
+      <h3>Registration No. - 01085</h3>
+      <h4>Official Certificate Verification</h4>
+    </div>
+
+    <div class="details">
+      <p><b>Registration No:</b> STCP_20210029</p>
+      <p><b>Roll No:</b> B1421301095</p>
+      <p><b>Name:</b> Ravindra Tiwari</p>
+      <p><b>Father's Name:</b> Vidhyadhar Tiwari</p>
+      <p><b>Course:</b> Stenographer With Computer Typing </p>
+      <p><b>Course Duration:</b> 12 Months </p>
+      <p><b>Status:</b> <span class="status-valid">Verified</span></p>
+    </div>
+
+    <table class="marks-table">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Subject & Paper</th>
+          <th>Max Marks</th>
+          <th>Marks Obtained</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Typing Fundamentals</td><td>100</td><td>91</td></tr>
+        <tr><td>2</td><td>Keyboard Familiarity & Layout</td><td>100</td><td>86</td></tr>
+        <tr><td>3</td><td>Shorthand Fundamentals</td><td>100</td><td>73</td></tr>
+        <tr><td>4</td><td>High Speed Dictation</td><td>100</td><td>63</td></tr>
+        <tr><td>5</td><td>Transcription</td><td>100</td><td>65</td></tr>
+      </tbody>
+    </table>
+
+
+
+    <table class="marks-table-a">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Practical</th>
+          <th>Speed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Short Hand (Eng.)</td><td>120 wpm</td></tr>
+        <tr><td>2</td><td>Short Hand (Hindi)</td><td>120 wpm</td></tr>
+        <tr><td>3</td><td>Computer English Typing</td><td>40 wpm</td></tr>
+        <tr><td>4</td><td>Computer Hindi Typing</td><td>35 wpm</td></tr>
+      </tbody>
+    </table>
+    
+<br>
+    
+    <div class="marks-summary">
+      <p><b>Total:</b> 378 / 500</p>
+      <p><b>Percentage:</b> 75.60%</p>
+      <p><b>Grade:</b> B (Good)</p>
+      <p><b>Result:</b> Passed</p>
+      <p><b>Date of Issued:</b> 29 June 2021</p>
+      <p><b>Verified By:</b> SRI TECH COMPUTER POINT</p>
+    </div>
+
+    <p class="qr-scan" id="qrTime"></p>
+
+    <div class="footer">
+      <p>This certificate has been digitally verified by <b>Sri Tech Computer Point (STCP)</b>.</p>
+      <p>For queries, contact:
+        <a href="mailto:sritechcp+verify@gmail.com">sritechcp+verify@gmail.com</a> |
+        <a href="mailto:sritechcp@gmail.com">sritechcp@gmail.com</a>
+      </p>
+      <p>© <span id="year"></span> Sri Tech Computer Point. All Rights Reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    function formatDateTime() {
+      const now = new Date();
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-GB', options).replace(',', '');
+      const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+      document.getElementById('qrTime').textContent = `📅 Verification Checked at: ${dateStr} • ${timeStr}`;
+    }
+    formatDateTime();
+  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+   
+    
